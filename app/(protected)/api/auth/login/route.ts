@@ -4,6 +4,13 @@ import { gasPost } from '@/lib/gas';
 import { signSession, sessionCookieOptions } from '@/lib/session';
 import type { UserProfile } from '@/types';
 
+interface LoginResponse {
+  success: boolean;
+  token:   string;
+  profile: UserProfile;
+  error?:  string;
+}
+
 export async function POST(req: Request) {
   try {
     const { email, password } = await req.json();
@@ -12,21 +19,17 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Email and password are required' }, { status: 400 });
     }
 
-    // Call GAS login — returns { success, token, profile }
-    const gas = await gasPost<{ token: string; profile: UserProfile }>({
-      action: 'login',
-      email,
-      password,
-    });
+    const gas = await gasPost<LoginResponse>({ action: 'login', email, password });
 
-    if (!gas.success || !gas.token) {
-      return NextResponse.json({ error: gas.error ?? 'Invalid credentials' }, { status: 401 });
+    const result = gas as unknown as LoginResponse;
+
+    if (!result.success || !result.token) {
+      return NextResponse.json({ error: result.error ?? 'Invalid credentials' }, { status: 401 });
     }
 
-    // Issue our own JWT containing the GAS token + profile
-    const jwt = await signSession({ gasToken: gas.token, profile: gas.profile! });
+    const jwt = await signSession({ gasToken: result.token, profile: result.profile });
 
-    const res = NextResponse.json({ success: true, profile: gas.profile });
+    const res = NextResponse.json({ success: true, profile: result.profile });
     res.cookies.set({ ...sessionCookieOptions, value: jwt });
     return res;
 
