@@ -1,0 +1,37 @@
+/* app/globals.css — USG Brand tokens + Tailwind base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* USG brand colours — matches your existing GAS UI */
+  --navy:    #1e4799;
+  --navy-dk: #0d2a5e;
+  --teal:    #00c9b8;
+  --teal-dk: #007a8a;
+  --red:     #E8302B;
+  --gold:    #b87000;
+  --green:   #136e42;
+  --purple:  #4e42b8;
+
+  /* Surfaces */
+  --bg:       #eef1f6;
+  --surface:  #ffffff;
+  --surface2: #f4f6fb;
+  --surface3: #eaecf4;
+  --border:   #d6dbe8;
+
+  /* Text */
+  --text:     #18243c;
+  --muted:    #526278;
+}
+
+body {
+  background: var(--bg);
+  color:      var(--text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--surface2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
