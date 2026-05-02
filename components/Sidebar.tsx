@@ -11,11 +11,11 @@ import {
 
 const NAV = [
   { href: '/dashboard',  label: 'Dashboard',    icon: BarChart2,    roles: ['SUPER_ADMIN','HR_OFFICER','STAFF','EMPLOYEE'] },
-    { href: '/tracker',    label: 'Centralized Trcker', icon: ClipboardList,roles: ['SUPER_ADMIN','HR_OFFICER','STAFF'] },
+    { href: '/tracker',    label: 'Onboarding Hub', icon: ClipboardList,roles: ['SUPER_ADMIN','HR_OFFICER','STAFF'] },
    { href: '/onboarding', label: 'Arrivals - Intl/Local',   icon: UserPlus,     roles: ['SUPER_ADMIN','HR_OFFICER','STAFF'] },
   { href: '/employees',  label: 'Active Employees',    icon: Users,        roles: ['SUPER_ADMIN','HR_OFFICER','STAFF'] },
  
-  { href: '/hr-docs',    label: 'Docs Genertor',      icon: FileText,     roles: ['SUPER_ADMIN','HR_OFFICER'] },
+  { href: '/hr-docs',    label: 'Docs Generator',      icon: FileText,     roles: ['SUPER_ADMIN','HR_OFFICER'] },
   { href: '/recruitment',label: 'Recruitment',  icon: Briefcase,    roles: ['SUPER_ADMIN','HR_OFFICER'] },
   { href: '/admin',      label: 'Admin',        icon: Shield,       roles: ['SUPER_ADMIN'] },
   { href: '/settings',   label: 'Settings',     icon: Settings,     roles: ['SUPER_ADMIN','HR_OFFICER'] },
