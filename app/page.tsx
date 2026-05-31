@@ -3,8 +3,6 @@
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { authApi } from '@/lib/api';
-import { getSession } from '@/lib/session';
-import HRDocsClient from './client';
 
 export default function LoginPage() {
   const router  = useRouter();
@@ -102,16 +100,3 @@ export default function LoginPage() {
       </div>
     </div>
   );
-}
-
-export const metadata = { title: 'Docs Generator — USG' };
- 
-export default async function HRDocsPage() {
-  const session = await getSession();
-  if (!session) redirect('/');
- 
-  const { role } = session.profile;
-  if (!['SUPER_ADMIN', 'HR_OFFICER'].includes(role)) redirect('/dashboard');
- 
-  return <HRDocsClient />;
-}
