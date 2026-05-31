@@ -7,7 +7,7 @@ import { getSession } from '@/lib/session';
 import HRDocsClient from './client';
 
 export const metadata = { title: 'Docs Generator — USG' };
-export default async function HRDocsClient() {
+export default async function HRDocsPage() {
   const session = await getSession();
   if (!session) redirect('/');
  
