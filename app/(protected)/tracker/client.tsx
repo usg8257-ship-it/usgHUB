@@ -356,7 +356,7 @@ function RecordRow({ rec, steps }: { rec: DSRecord; steps: StepConfig[] }) {
           padding: '2px 8px', fontSize: 11, fontWeight: 700,
           textAlign: 'center', display: 'inline-block',
         }}>
-          USG
+          {rec.ENTITY ?? 'USG'}
         </span>
 
         {/* Status indicator */}
