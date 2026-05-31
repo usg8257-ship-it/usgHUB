@@ -549,7 +549,7 @@ export default function OnboardingHubClient() {
 
   // Active steps sorted by order — all derived from sheet
   const activeSteps = useMemo(
-    () => [...steps].filter(s => s.active).sort((a, b) => a.order - b.order),
+    () => [...steps].sort((a, b) => a.order - b.order),
     [steps]
   );
 
