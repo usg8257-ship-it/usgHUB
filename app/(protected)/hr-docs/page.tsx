@@ -1,5 +1,5 @@
-'use client';
-// app/(protected)/hr-docs/page.tsx — HR Docs stub
+// app/(protected)/hr-docs/page.tsx
+// Server component — auth + role check only
 import { redirect } from 'next/navigation';
 import { getSession } from '@/lib/session';
 import HRDocsClient from './client';
