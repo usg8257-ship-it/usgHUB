@@ -77,6 +77,7 @@ export interface DSRecord {
   TRANSFER_DATE:      string;
   TRANSFERRED_BY:     string;
   RESPONSIBLE_HR:     string;
+  ENTITY:             string;
   STEP_VISA:          StepData;
   STEP_LABOR:         StepData;
   STEP_MEDICAL:       StepData;
