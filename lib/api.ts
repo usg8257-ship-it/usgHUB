@@ -5,7 +5,8 @@
 // ============================================================
 import type {
   Employee, OnboardingRecord, DSRecord, StepConfig,
-  HRDoc, AppUser, LeaveRecord, Job, Application, GasResponse
+  HRDoc, AppUser, LeaveRecord, Job, Application, GasResponse,
+  OfferLetterRequest, OfferLetterResponse, BulkLetterRow, BulkLetterResponse,
 } from '@/types';
 
 // ── Core fetcher ────────────────────────────────────────────
@@ -101,10 +102,11 @@ export const stepConfigApi = {
 // ── HR Docs ──────────────────────────────────────────────────
 
 export const hrDocsApi = {
-  getAll:          ()                    => run<HRDoc[]>('getHRDocs'),
-  issue:           (data: object)        => run<{ refNo: string }>('issueHRDoc', [data]),
-  generateLetter:  (data: object)        => run<{ url: string }>('generateAndIssueLetter', [data]),
-  generateExpLetter:(empId: string)      => run<{ url: string }>('generateExperienceLetterForEmp', [empId]),
+  getAll:                 ()                             => run<HRDoc[]>('getHRDocs'),
+  issue:                  (data: object)                 => run<{ refNo: string }>('issueHRDoc', [data]),
+  generateOfferLetter:    (data: OfferLetterRequest)     => run<OfferLetterResponse>('generateOfferLetter', [data]),
+  generateBulkOfferLetters:(rows: BulkLetterRow[])       => run<BulkLetterResponse>('generateBulkOfferLetters', [rows]),
+  generateExpLetter:      (empId: string)                => run<{ url: string }>('generateExperienceLetterForEmp', [empId]),
 };
 
 // ── Users (Admin) ────────────────────────────────────────────

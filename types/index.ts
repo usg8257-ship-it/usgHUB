@@ -118,6 +118,34 @@ export interface HRDoc {
   ENTITY:      string;
 }
 
+export type OfferLetterType = 'PSBD' | 'SIRA';
+
+export interface OfferLetterRequest {
+  name:        string;
+  passport:    string;
+  nationality: string;
+  type:        OfferLetterType;
+}
+
+export interface OfferLetterResponse {
+  base64:    string;
+  fileName:  string;
+}
+
+export interface BulkLetterRow {
+  name:        string;
+  passport:    string;
+  nationality: string;
+  lic:         OfferLetterType;
+}
+
+export interface BulkLetterResponse {
+  base64:   string;
+  fileName: string;
+  count:    number;
+  errors?:  string[];
+}
+
 // ── Users ────────────────────────────────────────────────────
 export interface AppUser {
   EMAIL:        string;
