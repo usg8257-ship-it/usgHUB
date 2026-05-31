@@ -256,14 +256,14 @@ function BulkTab() {
           };
 
           const name        = get(['FULL NAME', 'FULLNAME', 'NAME', 'CANDIDATE NAME', 'CANDIDATE FULL NAME']);
-          const passport    = get(['PASSPORT NO', 'PASSPORT', 'PASSPORT NUMBER', 'PASSPORT_NO']);
+          const passport    = get(['PASSPORT NO', 'PASSPORT', 'PASSPORT NUMBER', 'PASSPORT_NO', 'PP No']);
           const nationality = get(['NATIONALITY', 'NATION']);
-          const lic         = get(['LIC', 'LICENSE', 'TEMPLATE', 'TYPE']).toUpperCase();
+          const lic         = get(['LIC', 'LICENSE', 'TEMPLATE', 'TYPE', 'Category']).toUpperCase();
 
           // Validate
           let _error = '';
           if (!name)        _error = 'Missing name';
-          else if (!passport)    _error = 'Missing passport';
+          else if (!passport)    _error = 'Missing passport no';
           else if (!nationality) _error = 'Missing nationality';
           else if (!['PSBD', 'SIRA'].includes(lic)) _error = `Invalid LIC: "${lic}" (use PSBD or SIRA)`;
 
