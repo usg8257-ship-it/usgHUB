@@ -29,4 +29,4 @@ export default async function HRDocsPage() {
 //       </pre>
 //     </div>
 //   );
-}
+
